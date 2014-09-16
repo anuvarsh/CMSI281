@@ -1,4 +1,4 @@
-package edu.lmu.cmsi.mike.packageperson;
+package edu.lmu.cmsi.mike.mavenperson.person;
 
 /* Our Person representation, in a Java package */
 public class Person {
