@@ -15,6 +15,10 @@ public class Circle {
         }
         this.radius = radiusValue;
     }
+
+    public String toString() {
+        return "Circle of radius " + radius + " centered at " + center;
+    }
     
     public double getRadius() {
         return radius;

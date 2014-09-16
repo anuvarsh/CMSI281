@@ -17,7 +17,7 @@ public class Square {
     }
 
     public String toString() {
-        return 
+        return "Side length: " + side + " centered at " + center;
     }
     
     public double getSide() {

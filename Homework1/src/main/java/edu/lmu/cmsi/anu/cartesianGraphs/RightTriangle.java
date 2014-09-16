@@ -17,6 +17,10 @@ public class RightTriangle {
         this.height = h;
         this.width = w;
     }
+
+    public String toString() {
+        return height + " by " + width + " centered at " + center;
+    }
     
     public double getArea() {
         return (1/2) * height * width;
