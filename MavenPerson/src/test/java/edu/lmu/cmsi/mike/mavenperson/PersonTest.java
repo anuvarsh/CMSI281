@@ -1,8 +1,11 @@
+package edu.lmu.cmsi.mike.mavenperson;
+
+import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import org.junit.Test;
 
-import edu.lmu.cmsi.mike.mavenperson.person;
+
+
 
 public class PersonTest {
 

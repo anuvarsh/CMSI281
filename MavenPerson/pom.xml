@@ -4,8 +4,8 @@
   <modelVersion>4.0.0</modelVersion>
 
 
-  <groupId><!-- your package name unique for all your packages --></groupId>
-  <artifactId><!-- what is it you're working on --></artifactId>
+  <groupId>edu.lmu.cmsi.mike</groupId>
+  <artifactId>MavenPerson</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -35,7 +35,7 @@
           </execution>
         </executions>
         <configuration>
-          <mainClass>edu.lmu.cmsi.mike.mavenperson.person.Person<!-- fully qualified package path to your class with main !--> </mainClass>
+          <mainClass></mainClass>
         </configuration>
       </plugin>
     </plugins>
