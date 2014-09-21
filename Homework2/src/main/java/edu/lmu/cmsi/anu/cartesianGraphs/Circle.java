@@ -4,13 +4,14 @@ import java.util.*;
 public class Circle {
     private double radius;
     private final Point origin = new Point (0,0);
-    private Point center = new Point(0,0);
+    private Point center;
     
     public void Circle (double radiusValue) {
         if (radius == null) { //this is apparently wrong because the types don't match?
             throw new IllegalArgumentException("Please make sure all constructor parameters are filled.");
         }
-        this.radius = radiusValue;
+        this.radius = radiusValue
+        this.center = new Point(radius, radius);
     }
 
     public String toString() {
@@ -33,22 +34,21 @@ public class Circle {
         return 2 * Math.PI * radius;
     }
     
-    public boolean containsPoint(int xVal, int yVal) {
-        //a method that indicates whether or not a point is within the shape
-        Point test = new Point (xVal, yVal);
-        //if distance between parameters were Point type, would just put origin in this parameter
-        return test.distanceBetween(0,0) < radius;
+    public boolean containsPoint(Point test) {
+        return test.distanceBetween(center) < radius;
     }
     
-    public Point translate(int x, int y) {
-        int xTrans = center.getX() + x;
-        int yTrans = center.getY() + y;
-        center = new Point(xTrans,yTrans); //this is meant to change the assignment for the center position of the circle.
+    public Point translate(Point trans) {
+        int xTrans = center.getX() + trans.getX();
+        int yTrans = center.getY() + trans.getY();
+        center = new Point(xTrans,yTrans);
         return center;
     }
     
-    public Line getBoundingRectangle() {
-        //create a method that finds the rectangle that surroundes this circle according to the new 
-        return null; //placeholder
+    public Rectangle getBoundingRectangle() {
+        double side = 2 * radius;
+        Rectangle bounding = new Rectangle(side,side);
+        return "The bounding rectangle is centered at " + center 
+        + " and has a height and width of" + bounding.getHeight() + " and " + bounding.getWidth() + " respectively."; 
     }
 }

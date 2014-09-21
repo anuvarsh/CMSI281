@@ -47,8 +47,6 @@ public class Line {
     }
         
     public boolean intersectingLines(Line test) {
-        //insert code here -- not sure how to approach this right now
-        //should return the point at which the lines intersect, if they do
         double s1_x, s1_y, s2_x, s2_y;
         double p0_x, p1_x, p0_y, p1_y;
         double p2_x, p3_x, p2_y, p3_y;
