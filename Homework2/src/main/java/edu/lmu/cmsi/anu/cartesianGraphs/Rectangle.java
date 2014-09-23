@@ -32,6 +32,14 @@ public class Rectangle {
         }
     }
 
+    public void setCorner1(Point test) {
+        corner1 = new Point(test.getX(), test.getY());
+    }
+
+    public Point getCorner1() {
+        return corner1;
+    }
+
     public double getHeight() {
         return height;
     }

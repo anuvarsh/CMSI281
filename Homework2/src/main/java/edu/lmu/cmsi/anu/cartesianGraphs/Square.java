@@ -67,7 +67,7 @@ public class Square {
 
     public String getBoundingRectangle() {
         Rectangle bounding = new Rectangle(side,side); 
-        return "The bounding rectangle is at cornered at" + corner1 
-        + " and has a height and width of" + bounding.getHeight() + " and" + bounding.getWidth() + ".";
+        return "The bounding rectangle is cornered at" + corner1 
+        + " and has a height and width of" + bounding.getHeight() + " and " + bounding.getWidth() + ".";
     }   
 }

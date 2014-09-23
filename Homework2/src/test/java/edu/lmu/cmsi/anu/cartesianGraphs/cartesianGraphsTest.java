@@ -84,7 +84,7 @@ public class cartesianGraphsTest {
 	@Test
 	public void lengthTest() {
 		double answer = Math.sqrt(2);
-		assertEquals(answer, l1.length());
+		assertEquals(answer, l1.length(), 2.0);
 	}
 
 	//Shapes
@@ -102,9 +102,10 @@ public class cartesianGraphsTest {
 	@Test
 	public void circleTranslateTest() {
 		Point ptest = new Point(1.0,1.0);
-		Circle ctest = c1.translate(ptest);
-		String result = "Circle of radius 5.0 centered at (6.0, 6.0)";
-		assertEquals("failure - translate incorrect", result, ctest);
+		Point ctest = c1.translate(ptest).getCenter();
+		Point result = new Point(6.0, 6.0);
+		assertEquals("failure - translate incorrect", result.getX(), ctest.getX(), 2.0);
+		assertEquals("failure - translate incorrect", result.getY(), ctest.getY(), 2.0);
 	}
 
 	@Test
@@ -125,8 +126,10 @@ public class cartesianGraphsTest {
 
 	@Test
 	public void squareGetBoundingRectangle() {
-		assertSame("failure - rectangle bounding square incorrect", "The bounding rectangle is cornered at " + "(0.0, 0.0)" 
-        + " and has a height and width of" + 5.0 + " and " + 5.0 + " respectively.", s1.getBoundingRectangle());	
+		Point c = new Point(0.0, 0.0);
+		String actual = "The bounding rectangle is cornered at" + c 
+        + " and has a height and width of" + 5.0 + " and " + 5.0 + ".";
+		assertSame("failure - rectangle bounding square incorrect", actual, s1.getBoundingRectangle());	
 	}
 
 	@Test

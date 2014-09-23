@@ -27,6 +27,10 @@ public class Circle {
     public double getRadius() {
         return radius;
     }
+
+    public Point getCenter() {
+        return center;
+    }
     
     public double getDiameter() {
         return radius * 2;
