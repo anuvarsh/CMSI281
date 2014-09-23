@@ -1,1 +1,125 @@
-//testfile
+package edu.lmu.cmsi.anu.cartesianGraphs;
+
+import edu.lmu.cmsi.anu.cartesianGraphs.Point;
+import edu.lmu.cmsi.anu.cartesianGraphs.Line;
+import edu.lmu.cmsi.anu.cartesianGraphs.Square;
+import edu.lmu.cmsi.anu.cartesianGraphs.Rectangle;
+import edu.lmu.cmsi.anu.cartesianGraphs.Circle;
+import edu.lmu.cmsi.anu.cartesianGraphs.RightTriangle;
+import org.junit.Before;
+import org.junit.Test;
+import java.util.*;
+
+import static org.junit.Assert.*;
+
+public class cartesianGraphsTest {
+
+	private Point p1;
+	private Point p2;
+	private Line l1;
+	private Line l2;
+	private Square s1;
+	private Rectangle r1;
+	private Circle c1;
+	private RightTriangle rt1;
+
+	@Before
+	public void initialize() {
+		this.p1 = new Point(1.0,2.0);
+		this.p2 = new Point(2.0,3.0);
+		this.l1 = new Line(p1, p2);
+		this.l2 = new Line(p2, p1);
+		this.s1 = new Square(5.0);
+		this.r1 = new Rectangle(5.0,10.0);
+		this.c1 = new Circle(5.0);
+		this.rt1 = new RightTriangle(10.0,10.0);
+	}
+
+	//Point Tests
+
+	@Test
+	public void pointInputTest() {		
+		assertEquals("x values not equal", p1.getX(), 1.0, 2.0);
+		assertEquals("y values not equal", p1.getY(), 2.0, 2.0);
+	}
+
+	@Test (expected = IllegalArgumentException.class)
+	public void negativePoint() {
+		Point p = new Point(-10.0,0.0);
+	}
+
+	@Test
+	public void distanceBetweenTest() {
+		assertEquals("failure - distance incorrect", Math.sqrt(2), p1.distanceBetween(p2), 4.0);
+	}
+
+	@Test
+	public void areEqualTest() {
+		assertTrue("failure - p1 not equal to p2", !p1.areEqual(p2));
+	}
+
+	//Line Tests
+
+	@Test (expected = IllegalArgumentException.class)
+	public void twoEqualPoints() {
+		Line l = new Line(p1, p1);
+	}
+
+	@Test
+	public void midpointTest() {
+		Point midpoint = new Point(3.0 / 2.0, 5.0 / 2.0);
+		assertEquals(midpoint, l1.midpoint());
+	}
+
+	@Test
+	public void equalityTest() {
+		assertFalse("failure - equality incorrect", l1.equality(l2));
+	}
+
+	@Test
+	public void intersectingLinesTest() {
+		assertFalse("failure - intersectingLines incorrect", l1.intersectingLines(l2));
+	}
+
+	@Test
+	public void lengthTest() {
+		double answer = Math.sqrt(2);
+		assertEquals(answer, l1.length());
+	}
+
+	//Shapes
+
+	@Test (expected = IllegalArgumentException.class)
+	public void negativeRadius() {
+		Circle c = new Circle(-10.0);
+	}
+
+	@Test 
+	public void circleContainsPoint() {
+		assertTrue("failure - containsPoint incorrect", c1.containsPoint(p2));
+	}
+
+	@Test
+	public void circleTranslateTest() {
+		Point ptest = new Point(1.0,1.0);
+		Circle ctest = c1.translate(ptest);
+		String result = "Circle of radius 5.0 centered at (6.0, 6.0)";
+		assertEquals("failure - translate incorrect", result, ctest);
+	}
+
+	@Test
+	public void squareContainsPoint() {
+		assertTrue("failure - containsPoint incorrect", s1.containsPoint(p1));
+	}
+
+	@Test 
+	public void rectangleContainsPoint() {
+		assertTrue("failure - containsPoint incorrect", r1.containsPoint(p2));
+	}
+
+	@Test 
+	public void rightTriangleContainsPoint() {
+		assertTrue("failure - containsPoint incorrect", rt1.containsPoint(p1));
+	}
+
+}

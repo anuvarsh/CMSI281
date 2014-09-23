@@ -1,4 +1,5 @@
 package edu.lmu.cmsi.anu.cartesianGraphs;
+import edu.lmu.cmsi.anu.cartesianGraphs.*;
 import java.util.*;
 
 public class Square {
@@ -42,7 +43,8 @@ public class Square {
     }
 
     public boolean containsPoint(Point test) {
-        return (test.getX() >= corner1.getX()) && (test.getY()<=corner3.getY());
+        return (test.getX() >= corner1.getX()) && (test.getX() <= corner3.getX()) 
+            && (test.getY() <= corner3.getY()) && (test.getY() >= corner1.getY());
     }
     
     public Square translate(Point test) {
@@ -60,11 +62,12 @@ public class Square {
         corner2 = new Point(tx+x2, tx+y2);
         corner3 = new Point(tx+x3, tx+y3);
         corner4 = new Point(tx+x4, tx+y4);
-        double
+        return this;
     }
 
     public String getBoundingRectangle() {
         Rectangle bounding = new Rectangle(side,side); 
-        return "The bounding rectangle is at cornered at" + corner1 + " and has a height and width of" + side + " and" + side + ".";
+        return "The bounding rectangle is at cornered at" + corner1 
+        + " and has a height and width of" + bounding.getHeight() + " and" + bounding.getWidth() + ".";
     }   
 }

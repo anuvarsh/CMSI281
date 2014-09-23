@@ -1,4 +1,5 @@
 package edu.lmu.cmsi.anu.cartesianGraphs;
+import edu.lmu.cmsi.anu.cartesianGraphs.Point;
 import java.util.*;
 
 public class Point {
@@ -35,23 +36,9 @@ public class Point {
 		return Math.sqrt(((tx - x)*(tx - x)) + ((ty - y)*(ty - y)));
 	}
 
-	//Similar problem here, would like to give a Point type as a parameter.
 	public boolean areEqual(Point test) {
-		return ((test.getX() == x) && (test.getY() == y));
+		return test.getX() == x && test.getY() == y;
 	}
-
-    /*
-    public static void main (String [] args) {
-        Point p1 = new Point(10.45, 20.78);
-        System.out.println(p1);
-        Point p2 = new Point(10.45, 20.78);
-        Point p3 = new Point(12.34, 11.23);
-        System.out.println(p1.distanceBetween(p2));
-        System.out.println(p1.areEqual(p2));
-        System.out.println(p1.areEqual(p3));
-        System.out.println(p1.distanceBetween(p3));
-    }
-    */
 }
 
 

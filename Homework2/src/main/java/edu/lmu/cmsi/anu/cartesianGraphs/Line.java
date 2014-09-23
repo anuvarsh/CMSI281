@@ -1,9 +1,7 @@
 package edu.lmu.cmsi.anu.cartesianGraphs;
-import java.util.*;
+import edu.lmu.cmsi.anu.cartesianGraphs.Point;
 
 public class Line {
-	//need to create two points to function as either end of the line
-    //other option: should I create two point types and put that into a constructor? or would that nedlessly complicate the construction process?
 
     // y = mx + c
     private double m;
@@ -32,7 +30,9 @@ public class Line {
 	}
 
 	public void checkLine() {
-        //create a check for the line. once again, what should i check?
+        if((stpt.getX() == enpt.getX()) && (stpt.getY() == enpt.getY())) {
+            throw new IllegalArgumentException("Please make sure the two points are not the same");
+        }
     }
         
     public Point midpoint() {
@@ -47,27 +47,30 @@ public class Line {
     }
         
     public boolean intersectingLines(Line test) {
-        double s1_x, s1_y, s2_x, s2_y;
-        double p0_x, p1_x, p0_y, p1_y;
-        double p2_x, p3_x, p2_y, p3_y;
-        p0_x = stpt.getX();
-        p1_x = enpt.getX();
-        p0_y = stpt.getY();
-        p1_y = enpt.getY();
-        p2_x = test.getStartPoint().getX();
-        p3_x = test.getEndPoint().getX();
-        p2_y = test.getStartPoint().getY();
-        p3_y = test.getEndPoint().getY();
+        double s1x, s1y, s2x, s2y;
+        double p1x, p2x, p1y, p2y;
+        double p3x, p4x, p3y, p4y;
 
-        s1_x = p1_x - p0_x;
-        s1_y = p1_y - p0_y;
-        s2_x = p3_x - p2_x;
-        s2_y = p3_y - p2_y;
+        //retrieving x and y values for each necessary point in the test and constructed line
+        p1x = stpt.getX();
+        p2x = enpt.getX();
+        p1y = stpt.getY();
+        p2y = enpt.getY();
+        p3x = test.getStartPoint().getX();
+        p4x = test.getEndPoint().getX();
+        p3y = test.getStartPoint().getY();
+        p4y = test.getEndPoint().getY();
 
+        //finding the distance between corresponding x and y values
+        s1x = p2x - p1x;
+        s1y = p2y - p1y;
+        s2x = p4x - p3x;
+        s2y = p4y - p3y;
+
+        //a mathematic algorithm that checks if two line segments are intersecting
         double s, t;
-        s = (-s1_y * (p0_x - p2_x) + s1_x * (p0_y - p2_y)) / (-s2_x * s1_y + s1_x * s2_y);
-        t = ( s2_x * (p0_y - p2_y) - s2_y * (p0_x - p2_x)) / (-s2_x * s1_y + s1_x * s2_y);
-
+        s = (-s1y * (p1x - p3x) + s1x * (p1y - p3y)) / (-s2x * s1y + s1x * s2y);
+        t = ( s2x * (p1y - p3y) - s2y * (p1x - p3x)) / (-s2x * s1y + s1x * s2y);
         return (s >= 0 && s <= 1 && t >= 0 && t <= 1);
 
     }
@@ -76,17 +79,4 @@ public class Line {
         return stpt.distanceBetween(enpt);
     }
 
-    /*public static void main (String[] args) {
-        Point p1 = new Point(10.45, 20.78);
-        Point p2 = new Point(0.45, 0.78);
-        Point p3 = new Point(100, 100);
-        Point p4 = new Point(110, 110);
-        Line l1 = new Line(p1, p2);
-        Line l2 = new Line(p3, p4);
-        System.out.println(l1);
-        System.out.println(l1.midpoint());
-        System.out.println(l1.length());
-        System.out.println(l1.intersectingLines(l2));
-    }
-    */
 }

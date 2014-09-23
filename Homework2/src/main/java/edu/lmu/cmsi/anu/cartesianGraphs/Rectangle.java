@@ -1,4 +1,5 @@
 package edu.lmu.cmsi.anu.cartesianGraphs;
+import edu.lmu.cmsi.anu.cartesianGraphs.*;
 import java.util.*;
 
 public class Rectangle {
@@ -11,7 +12,8 @@ public class Rectangle {
     private Point corner3;
     private Point corner4;
 
-    public Rectangle (double h, double w) {
+    //Corner#'s assigned in a clockwise fashion, where corner1 is always the bottom left corner of the rectangle
+    public Rectangle (double w, double h) {
         this.corner2 = new Point(0, h);
         this.corner3 = new Point(w, h);
         this.corner4 = new Point(w, 0);
@@ -25,7 +27,7 @@ public class Rectangle {
     }
 
     public void checkInput() {
-        if ((h < 0) || (w < 0)) {
+        if ((height < 0) || (width < 0)) {
             throw new IllegalArgumentException("Please make sure all parameters are positive doubles.");
         }
     }
@@ -47,7 +49,8 @@ public class Rectangle {
     }
 
     public boolean containsPoint(Point test) {
-        return (test.getX() >= corner1.getX()) && (test.getY()<=corner3.getY());
+        return (test.getX() >= corner1.getX()) && (test.getX() <= corner3.getX()) 
+            && (test.getY() <= corner3.getY()) && (test.getY() >= corner1.getY());
     }
     
     public Rectangle translate(Point test) {
@@ -65,19 +68,13 @@ public class Rectangle {
         corner2 = new Point(tx+x2, tx+y2);
         corner3 = new Point(tx+x3, tx+y3);
         corner4 = new Point(tx+x4, tx+y4);
-        double newH = corner1.distanceBetween(corner2);
-        double newW = corner1.distanceBetween(corner4);
-        return Rectangle(newH, newW);
+        this.height = corner1.distanceBetween(corner2);
+        this.width = corner1.distanceBetween(corner4);
+        return this;
     }
     
     public String getBoundingRectancle() {
-        Rectangle bounding = new Rectangle(height,width);
+        Rectangle bounding = new Rectangle(width,height);
         return "The bounding rectangle is cornered at " + corner1 + " and has a height and width of" + height + " and " + width + " respectively.";
-    }
-
-    public static void main (String [] args) {
-        Rectangle ugh = new Rectangle(5, 10);
-        Point trans = new Point(2, 4);
-        System.out.println(ugh.translate(trans);
     }
 }
