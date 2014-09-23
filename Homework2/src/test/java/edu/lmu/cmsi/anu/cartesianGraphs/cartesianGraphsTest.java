@@ -108,8 +108,33 @@ public class cartesianGraphsTest {
 	}
 
 	@Test
+	public void circleGetBoundingRectangle() {
+		assertSame("failure - rectable bounding circle incorrect", "The bounding rectangle is centered at " + "(5.0, 5.0)" 
+        + " and has a height and width of" + 10.0 + " and " + 10.0 + " respectively.", c1.getBoundingRectangle());
+	}
+
+	@Test
 	public void squareContainsPoint() {
 		assertTrue("failure - containsPoint incorrect", s1.containsPoint(p1));
+	}
+
+	@Test (expected = IllegalArgumentException.class)
+	public void negativeSquareSide() {
+		Square test = new Square(-5.0);
+	}
+
+	@Test
+	public void squareGetBoundingRectangle() {
+		assertSame("failure - rectangle bounding square incorrect", "The bounding rectangle is cornered at " + "(0.0, 0.0)" 
+        + " and has a height and width of" + 5.0 + " and " + 5.0 + " respectively.", s1.getBoundingRectangle());	
+	}
+
+	@Test
+	public void squareTranslateTest() {
+		Point ptest = new Point(1.0,1.0);
+		Square stest = s1.translate(ptest);
+		String result = "Square bound by: (1, 1) (1, 6) (6, 6), and  (6, 1)";
+		assertEquals("failure - translate incorrect", result, stest);
 	}
 
 	@Test 
@@ -117,9 +142,47 @@ public class cartesianGraphsTest {
 		assertTrue("failure - containsPoint incorrect", r1.containsPoint(p2));
 	}
 
+	@Test
+	public void rectangleGetBoundingRectangle() {
+		assertSame("failure - rectangle bounding rectangle incorrect", "The bounding rectangle is cornered at " + "(0.0, 0.0)" 
+        + " and has a height and width of" + 10.0 + " and " + 5.0 + " respectively.", r1.getBoundingRectangle());	
+	}
+
+	@Test (expected = IllegalArgumentException.class)
+	public void negativeRectangleSide() {
+		Rectangle test = new Rectangle(-3.0, 10.0);
+	}
+
+	@Test
+	public void rectangleTranslateTest() {
+		Point ptest = new Point(1.0,1.0);
+		Rectangle rtest = r1.translate(ptest);
+		String result = "Rectangle bound by: (1, 1) (1, 11) (6, 11), and  (6, 1)";
+		assertEquals("failure - translate incorrect", result, rtest);
+	}
+
 	@Test 
 	public void rightTriangleContainsPoint() {
 		assertTrue("failure - containsPoint incorrect", rt1.containsPoint(p1));
+	}
+
+	@Test
+	public void triangleGetBoundingRectangle() {
+		assertSame("failure - rectangle bounding triangle incorrect", "The bounding rectangle is cornered at " + "(0.0, 0.0)" 
+        + " and has a height and width of" + 10.0 + " and " + 10.0 + " respectively.", r1.getBoundingRectangle());	
+	}
+
+	@Test (expected = IllegalArgumentException.class)
+	public void negativeRightTriangleSide() {
+		RightTriangle test = new RightTriangle(-2.0, 5.0);
+	}
+
+	@Test
+	public void triangleTranslateTest() {
+		Point ptest = new Point(1.0,1.0);
+		RightTriangle ttest = rt1.translate(ptest);
+		String result = "Triangle bound by (1.0, 1.0) (1.0, 11.0) (11.0, 1.0).";
+		assertEquals("failure - translate incorrect", result, ttest);
 	}
 
 }

@@ -73,7 +73,7 @@ public class Rectangle {
         return this;
     }
     
-    public String getBoundingRectancle() {
+    public String getBoundingRectangle() {
         Rectangle bounding = new Rectangle(width,height);
         return "The bounding rectangle is cornered at " + corner1 + " and has a height and width of" + height + " and " + width + " respectively.";
     }
