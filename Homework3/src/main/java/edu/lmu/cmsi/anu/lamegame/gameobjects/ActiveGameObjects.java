@@ -3,15 +3,19 @@ package edu.lmu.cmsi.anu.lamegame.gameobjects;
 import edu.lmu.cmsi.anu.lamegame.core.Coordinate;
 import edu.lmu.cmsi.anu.lamegame.core.Displacement;
 
-public class ActiveGameObjects extends GameObjects implements Moveable {
+// this class will be used to create player, monsters, and bosses
 
-/*
-* code for implementing Moveable Interface
-*/
+public class ActiveGameObjects extends GameObjects implements Moveable, Hittable {
+
+  public ActiveGameObjects(int x, int y, char l) {
+    super(x, y, l);
+  }
+
+// code for implementing Moveable Interface
 
   private Displacement displacement;
   private int hitPoints;
-
+  
   public void setDisplacement(int dx, int dy) {
     this.displacement = new Displacement(dx, dy);
   }
@@ -25,17 +29,16 @@ public class ActiveGameObjects extends GameObjects implements Moveable {
     this.coords.setY(this.coords.getY() + this.displacement.getYDisplacement());
   }
 
+// code for implementing Hittable Interface
+
   public void updateHitPoints(int hp) {
-    this.hitPoints = hp;
+    this.hitPoints = this.hitPoints + hp;
   }
 
   public int getHitPoints() {
     return this.hitPoints;
   }
 
-/*
-* END of code for implementing Moveable interface
-*/
 
 
 }

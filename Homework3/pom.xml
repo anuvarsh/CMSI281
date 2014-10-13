@@ -4,8 +4,8 @@
   <modelVersion>4.0.0</modelVersion>
 
 
-  <groupId>edu.lmu.cmsi.mike</groupId> <!-- change this to match your package name -->
-  <artifactId>mavenexample</artifactId> <!-- change this to match the name of the project/homework you're working on -->
+  <groupId>edu.lmu.cmsi.anu</groupId> <!-- change this to match your package name -->
+  <artifactId>lamegame</artifactId> <!-- change this to match the name of the project/homework you're working on -->
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -36,7 +36,7 @@
           </execution>
         </executions>
         <configuration>
-          <mainClass>edu.lmu.cmsi.mike.mavenexample.App</mainClass> <!-- change this to the location of your class with the main method -->
+          <mainClass>edu.lmu.cmsi.anu.lamegame.App</mainClass> <!-- change this to the location of your class with the main method -->
           <arguments>
             <argument>-X</argument> <!-- you can probably delete this if you don't need to pass arguments to your program -->
             <argument>megally</argument>

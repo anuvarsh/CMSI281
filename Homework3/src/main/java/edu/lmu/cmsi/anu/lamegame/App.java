@@ -14,6 +14,7 @@ public class App {
     System.out.println("Commands are: [N]ext frame or [Q]uit");
     this.keyboard = new Scanner(System.in);
     this.engine = new GameEngine(20);
+    this.engine.initiate();
   }
 
   /*
