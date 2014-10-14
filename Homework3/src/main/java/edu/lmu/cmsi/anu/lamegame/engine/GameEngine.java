@@ -146,7 +146,6 @@ public class GameEngine {
         int wx = walls[j].getCoords().getX();
         int wy = walls[j].getCoords().getY();
         if (ax == wx && ay == wy) {
-          System.out.println("Collision with walls"); // DELETE ME LATER
           this.handleCollision(active[i], walls[j]);
         }
       }
@@ -154,7 +153,6 @@ public class GameEngine {
         int sx = stationary[x].getCoords().getX();
         int sy = stationary[x].getCoords().getY();
         if (ax == sx && ay == sy) {
-          System.out.println("Collision with stationary " + active[i].getLabel()); // DELETE ME LATER
           this.handleCollision(active[i], stationary[x]);
         }
       }
@@ -166,7 +164,6 @@ public class GameEngine {
         int a2x = active[y].getCoords().getX();
         int a2y = active[y].getCoords().getY();
         if (ax == a2x && ay == a2y) {
-          System.out.println("Collision with active"); // DELETE ME LATER
           this.handleCollision(active[y], active[z]);
         }
       }
@@ -174,10 +171,17 @@ public class GameEngine {
   }
 
   private void handleCollision(GameObjects o1, GameObjects o2) {
+    this.pEncounterAorS(o1, o2);
+    this.pEncounterZorX(o1, o2);
+    this.pEncounterOorK(o1, o2);
+    this.encounterWall(o1, o2);
+    this.encounterTorR(o1, o2);
+  }
+
+  private void pEncounterAorS(GameObjects o1, GameObjects o2) {
     char o1L = o1.getLabel();
     char o2L = o2.getLabel();
 
-    // rule: player encountering monster (a, s)
     boolean rule2 = false;
     if (o1L == 'p' && o2L == 'a') {
       rule2 = true;
@@ -205,8 +209,12 @@ public class GameEngine {
         ((ActiveGameObjects)o2).updateHitPoints(1);
       }
     }
+  }
 
-    // rule: player encountering monster (z, x)
+  private void pEncounterZorX(GameObjects o1, GameObjects o2) {
+    char o1L = o1.getLabel();
+    char o2L = o2.getLabel();
+
     boolean rule3 = false;
     if (o1L == 'p' && o2L == 'z') {
       rule3 = true;
@@ -234,8 +242,12 @@ public class GameEngine {
         ((ActiveGameObjects)o2).updateHitPoints(1);
       }
     }
+  }
 
-    // rule: player encountering boss (o, k)
+  private void pEncounterOorK(GameObjects o1, GameObjects o2) {
+    char o1L = o1.getLabel();
+    char o2L = o2.getLabel();
+
     boolean rule4 = false;
     if (o1L == 'p' && o2L == 'o') {
       rule4 = true;
@@ -263,27 +275,47 @@ public class GameEngine {
         ((ActiveGameObjects)o2).updateHitPoints(1);
       }
     }
+  }
 
-    // rule: active object encounters wall
+  private void encounterWall(GameObjects o1, GameObjects o2) {
+    char o1L = o1.getLabel();
+    char o2L = o2.getLabel();
+
     if (o1L == 'w') {
-      ((ActiveGameObjects)o2).invertDisplacement();
+      if (o2 instanceof ActiveGameObjects) {
+        ((ActiveGameObjects)o2).invertDisplacement();
+      }
     }
     if (o2L == 'w') {
-      ((ActiveGameObjects)o1).invertDisplacement();
+      if (o1 instanceof ActiveGameObjects) {
+        ((ActiveGameObjects)o1).invertDisplacement();
+      }
     }
+  }
 
-    // rule: active encountering tree or rock (t, r)
+  private void encounterTorR(GameObjects o1, GameObjects o2) {
+    char o1L = o1.getLabel();
+    char o2L = o2.getLabel();
+
     if (o2L == 'r') {
-      ((ActiveGameObjects)o1).updateHitPoints(1);
+      if (o1 instanceof ActiveGameObjects) {
+        ((ActiveGameObjects)o1).updateHitPoints(1);
+      }
     }
     if (o1L == 'r') {
-      ((ActiveGameObjects)o2).updateHitPoints(1);
+      if (o2 instanceof ActiveGameObjects) {
+        ((ActiveGameObjects)o2).updateHitPoints(1);
+      }
     }
     if (o2L == 't') {
-      ((ActiveGameObjects)o1).updateHitPoints(1);
+      if (o1 instanceof ActiveGameObjects) {
+        ((ActiveGameObjects)o1).updateHitPoints(1);
+      }
     }
     if (o1L == 't') {
-      ((ActiveGameObjects)o2).updateHitPoints(1);
+      if (o2 instanceof ActiveGameObjects) {
+        ((ActiveGameObjects)o2).updateHitPoints(1);
+      }
     }
   }
 }
