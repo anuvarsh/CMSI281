@@ -2,18 +2,18 @@ package edu.lmu.cmsi.anu.lamegame;
 
 import java.util.Scanner;
 
-import edu.lmu.cmsi.anu.lamegame.engine.GameEngine;
+import edu.lmu.cmsi.anu.lamegame.engine.GameEngine1;
 
 public class App {
 
   private Scanner keyboard = null;
-  private GameEngine engine;
+  private GameEngine1 engine;
 
   public App() {
     System.out.println("Welcome to LameGame");
     System.out.println("Commands are: [N]ext frame or [Q]uit");
     this.keyboard = new Scanner(System.in);
-    this.engine = new GameEngine(20);
+    this.engine = new GameEngine1(20);
     this.engine.initiate();
   }
 

@@ -1,9 +1,0 @@
-edu/lmu/cmsi/anu/lamegame/engine/GameEngine.class
-edu/lmu/cmsi/anu/lamegame/core/Coordinate.class
-edu/lmu/cmsi/anu/lamegame/App.class
-edu/lmu/cmsi/anu/lamegame/gameobjects/Wall.class
-edu/lmu/cmsi/anu/lamegame/gameobjects/ActiveGameObjects.class
-edu/lmu/cmsi/anu/lamegame/core/Displacement.class
-edu/lmu/cmsi/anu/lamegame/gameobjects/Hittable.class
-edu/lmu/cmsi/anu/lamegame/gameobjects/Moveable.class
-edu/lmu/cmsi/anu/lamegame/gameobjects/GameObjects.class

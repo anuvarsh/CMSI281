@@ -3,15 +3,15 @@ package edu.lmu.cmsi.anu.lamegame.gameobjects;
 import edu.lmu.cmsi.anu.lamegame.core.Coordinate;
 import edu.lmu.cmsi.anu.lamegame.core.Displacement;
 
-public class Wall extends GameObjects {
+public class MonsterZ extends Monster {
 
-  public Wall(int x, int y) {
+  public MonsterZ(int x, int y) {
     super(x, y);
   }
 
   @Override
   public char getLabel() {
-    return 'w';
+    return 'z';
   }
 
 }
