@@ -41,7 +41,7 @@ public class Player extends GameObjects {
   }
 
   public void checkCollision(MonsterX x) {
-    if (this.getX() == x.getX() && this.getY() == x.getY()) {
+    if (this.coords.getX() == x.coords.getX() && this.coords.getY() == x.coords.getY()) {
       if (Math.random() > 0.5) {
         this.updateHitPoints(1);
       }
@@ -49,7 +49,7 @@ public class Player extends GameObjects {
   }
 
   public void checkCollision(BossO o) {
-    if (this.getX() == o.getX() && this.getY() == o.getY()) {
+    if (this.coords.getX() == o.coords.getX() && this.coords.getY() == o.coords.getY()) {
       if (Math.random() > 0.3) {
         this.updateHitPoints(1);
       }
@@ -57,7 +57,7 @@ public class Player extends GameObjects {
   }
 
   public void checkCollision(BossK k) {
-    if (this.getX() == k.getX() && this.getY() == k.getY()) {
+    if (this.coords.getX() == k.coords.getX() && this.coords.getY() == k.coords.getY()) {
       if (Math.random() > 0.3) {
         this.updateHitPoints(1);
       }

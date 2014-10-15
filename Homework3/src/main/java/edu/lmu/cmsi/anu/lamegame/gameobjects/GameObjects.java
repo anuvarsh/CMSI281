@@ -5,9 +5,9 @@ import edu.lmu.cmsi.anu.lamegame.core.Displacement;
 
 // this class will be used to create wall, tree, and rock
 
-public abstract class GameObjects implements Moveable, Hittable {
+public abstract class GameObjects {
 	
-	protected Coordinate coords;
+	public Coordinate coords;
 
 	public GameObjects(int x, int y) {
 		this.coords = new Coordinate(x, y);
@@ -18,8 +18,6 @@ public abstract class GameObjects implements Moveable, Hittable {
 	}
 
 	public abstract char getLabel();
-
-	// code for implementing Moveable Interface
 
   private Displacement displacement;
   
@@ -39,8 +37,6 @@ public abstract class GameObjects implements Moveable, Hittable {
     this.coords.setX(this.coords.getX() + this.displacement.getXDisplacement());
     this.coords.setY(this.coords.getY() + this.displacement.getYDisplacement());
   }
-
-  // code for implementing Hittable Interface
 
   private int hitPoints;
 

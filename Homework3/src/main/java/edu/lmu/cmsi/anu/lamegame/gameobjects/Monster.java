@@ -9,7 +9,7 @@ public abstract class Monster extends GameObjects {
     super(x, y);
   }
 
-  public char getLabel();
+  public abstract char getLabel();
 
   // monster rules
 

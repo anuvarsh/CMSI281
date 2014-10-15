@@ -28,7 +28,7 @@ public class GameEngine1 {
   private BossO bossO;
   private BossK bossK;
 
-  public void GameEngine(int size) {
+  public GameEngine1(int size) {
     if (size < 20) {
       throw new IllegalArgumentException("This game recommends a size of at least 20.");
     }

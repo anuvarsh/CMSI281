@@ -9,7 +9,7 @@ public abstract class Boss extends GameObjects {
     super(x, y);
   }
 
-  public char getLabel();
+  public abstract char getLabel();
 
   // boss rules
 
