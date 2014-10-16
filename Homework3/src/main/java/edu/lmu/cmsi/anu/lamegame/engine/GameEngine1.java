@@ -1,4 +1,4 @@
- package edu.lmu.cmsi.anu.lamegame.engine;
+package edu.lmu.cmsi.anu.lamegame.engine;
 
 import edu.lmu.cmsi.anu.lamegame.gameobjects.Wall;
 import edu.lmu.cmsi.anu.lamegame.gameobjects.Rock;

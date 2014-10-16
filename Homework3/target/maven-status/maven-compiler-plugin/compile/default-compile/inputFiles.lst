@@ -10,10 +10,8 @@
 /Users/AnuV/Desktop/Fall_2014/Data_Structures/CMSI281/Homework3/src/main/java/edu/lmu/cmsi/anu/lamegame/gameobjects/GameObjects.java
 /Users/AnuV/Desktop/Fall_2014/Data_Structures/CMSI281/Homework3/src/main/java/edu/lmu/cmsi/anu/lamegame/gameobjects/Monster.java
 /Users/AnuV/Desktop/Fall_2014/Data_Structures/CMSI281/Homework3/src/main/java/edu/lmu/cmsi/anu/lamegame/gameobjects/MonsterS.java
-/Users/AnuV/Desktop/Fall_2014/Data_Structures/CMSI281/Homework3/src/main/java/edu/lmu/cmsi/anu/lamegame/gameobjects/Moveable.java
 /Users/AnuV/Desktop/Fall_2014/Data_Structures/CMSI281/Homework3/src/main/java/edu/lmu/cmsi/anu/lamegame/gameobjects/MonsterZ.java
 /Users/AnuV/Desktop/Fall_2014/Data_Structures/CMSI281/Homework3/src/main/java/edu/lmu/cmsi/anu/lamegame/core/Coordinate.java
 /Users/AnuV/Desktop/Fall_2014/Data_Structures/CMSI281/Homework3/src/main/java/edu/lmu/cmsi/anu/lamegame/core/Displacement.java
 /Users/AnuV/Desktop/Fall_2014/Data_Structures/CMSI281/Homework3/src/main/java/edu/lmu/cmsi/anu/lamegame/gameobjects/Tree.java
-/Users/AnuV/Desktop/Fall_2014/Data_Structures/CMSI281/Homework3/src/main/java/edu/lmu/cmsi/anu/lamegame/gameobjects/Hittable.java
 /Users/AnuV/Desktop/Fall_2014/Data_Structures/CMSI281/Homework3/src/main/java/edu/lmu/cmsi/anu/lamegame/gameobjects/Wall.java
