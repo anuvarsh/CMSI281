@@ -8,6 +8,8 @@ import edu.lmu.cmsi.anu.lamegame.core.Displacement;
 public abstract class GameObjects {
 	
 	public Coordinate coords;
+  private int hitPoints;
+  private Displacement displacement;
 
 	public GameObjects(int x, int y) {
 		this.coords = new Coordinate(x, y);
@@ -19,8 +21,6 @@ public abstract class GameObjects {
 
 	public abstract char getLabel();
 
-  private Displacement displacement;
-  
   public void setDisplacement(int dx, int dy) {
     this.displacement = new Displacement(dx, dy);
   }
@@ -38,7 +38,6 @@ public abstract class GameObjects {
     this.coords.setY(this.coords.getY() + this.displacement.getYDisplacement());
   }
 
-  private int hitPoints;
 
   public void updateHitPoints(int hp) {
     this.hitPoints = this.hitPoints + hp;
