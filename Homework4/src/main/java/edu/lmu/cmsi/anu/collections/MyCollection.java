@@ -9,10 +9,11 @@ public abstract class MyCollection<E> implements Iterable<E>{
 		this.size = size;
 	}
 
-	public int getSize(){
-		return this.size;
-	}
+    public int getMaxSize() {
+        return size;
+    }
 
+	public abstract int getSize();
 	public abstract E getOldest();
 	public abstract E getNewest();
 	public abstract void add(E newElement);

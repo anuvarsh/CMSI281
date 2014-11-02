@@ -3,69 +3,52 @@ package edu.lmu.cmsi.anu.collections;
 import java.util.Iterator;
 
 public class ManualLinkedList<E> extends MyCollection<E> implements Iterable<E> {
-	private Node head;
-	private int count;
-	private int size;
+	private Node<E> head;
+	private int nElements;
 
 	public ManualLinkedList(int maxSize) {
 		super(maxSize);
-		this.head = new Node(null);
-		this.count = 0;
+		this.head = new Node<E>(null);
+		this.nElements = 0;
 	}
 
-	public int maxSize() {
-		return size;
-	}
-
-	public int currentSize() {
-		return count;
+	public int getSize() {
+		return nElements;
 	}
 
 	public void add(E newElement) {
-		Node temp = new Node(newElement);
-		Node current = head;
+		Node<E> temp = new Node(newElement);
+		Node<E> current = head;
 
 		if (newElement == null) {
 			throw new IllegalArgumentException("This collection does not accept nulls.");
 		}
 
-		if (count > size) {
-			this.remove(1);
+		if (nElements >= size) {
+			head.setNext((head.getNext()).getNext());
+            nElements--;
 		} 
-		else {
-			while (current.getNext() != null) {
-				current = current.getNext();
-			}
-			current.setNext(temp);
-			count++;
-		}	
+
+		while (current.getNext() != null) {
+			current = current.getNext();
+		}
+		current.setNext(temp);
+		nElements++;
 	}
 	
 	public E getOldest() {
-        return null;
+        return head.getNext().getValue();
 	}
 
 	public E getNewest() {
-		return null;
-	}
-
-	public boolean remove(int index) {
-		if (index < 1 || index > size) {
-			return false;
-		}
-
-		Node current = head;
-		for (int i = 1; i <= index; i++) {
-			if (current.getNext() == null) {
-				return false;
-			}
-
-			current = current.getNext();
-		}
-
-		current.setNext(current.getNext().getNext());
-		count--;
-		return true;
+        Node<E> current = head;
+        if (head.getNext() == null) {
+            throw new IllegalStateException("getNewest attempted on empty list");
+        }
+        while (current.getNext() != null) {
+            current = current.getNext();
+        }
+		return current.getValue();
 	}
 
 	public void reset() {
@@ -75,9 +58,10 @@ public class ManualLinkedList<E> extends MyCollection<E> implements Iterable<E> 
                 current = null;
             }
         }
+        nElements = 0;
 	}
 
 	public Iterator<E> iterator() {
-        return new ManualLinkedListIterator<E>();
+        return new ManualLinkedListIterator<E>(head);
     }
 }

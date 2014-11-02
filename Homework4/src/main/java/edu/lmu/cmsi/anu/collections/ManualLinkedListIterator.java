@@ -3,14 +3,20 @@ package edu.lmu.cmsi.anu.collections;
 import java.util.Iterator;
 
 public class ManualLinkedListIterator<E> implements Iterator {
+    Node<E> head;
 
+    public ManualLinkedListIterator(Node<E> input) {
+        this.head = input;
+    }
 
     public boolean hasNext() {
-        return false;
+        return head.getNext() != null;
     }
 
     public E next() {
-        return null;
+        E val = head.getNext().getValue();
+        head = head.getNext();
+        return val;
     }
 
     public void remove() {

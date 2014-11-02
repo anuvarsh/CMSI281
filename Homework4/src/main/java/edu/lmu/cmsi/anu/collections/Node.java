@@ -3,7 +3,7 @@ package edu.lmu.cmsi.anu.collections;
 public class Node<E> {
 
 	private E value = null;
-    private Node next = null;
+    private Node<E> next = null;
 
     public Node(E value) {
         this.value = value;

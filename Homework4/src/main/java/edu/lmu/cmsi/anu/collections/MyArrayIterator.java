@@ -16,12 +16,9 @@ public class MyArrayIterator<E> implements Iterator<E> {
 
 	public E next() {
 		if (this.currentObject == this.arrayCollection.length) {
-			this.currentObject = 0;
+            throw new IllegalStateException("Shouldn't get here");
 		}
-		else {
-			this.currentObject++;
-		}
-		return this.arrayCollection[currentObject];
+        return this.arrayCollection[currentObject++];
 	}
 
 	public void remove() {
