@@ -28,6 +28,72 @@ public class CollectionsTest {
     }
 
     //skipped all MyArray tests... insert here later
+    @Test
+    public void arrGetOldestFewN() {
+        arr.add("1");
+        arr.add("2");
+        assertEquals("did not return oldest element", "1", arr.getOldest());
+    }
+
+    @Test
+    public void arrGetOldestExtraN() {
+        arr.add("1");
+        arr.add("2");
+        arr.add("3");
+        arr.add("4");
+        assertEquals("did not return oldest element", "2", arr.getOldest());
+    }
+
+    @Test
+    public void arrGetNewestFewN() {
+        arr.add("1");
+        arr.add("2");
+        assertEquals("did not return newest element", "2", arr.getNewest());
+    }
+
+    @Test
+    public void arrGetNewestExtraN() {
+        arr.add("1");
+        arr.add("2");
+        arr.add("3");
+        arr.add("4");
+        assertEquals("did not return newest element", "4", arr.getNewest());
+    }
+
+    @Test
+    public void arrGetSize() {
+        arr.add("1");
+        arr.add("2");
+        assertEquals("did not return correct size", 2, arr.getSize());
+    }
+
+    @Test
+    public void arrResetGetSize() {
+        arr.add("1");
+        arr.add("2");
+        arr.reset();
+        assertEquals("did not return correct size", 0, arr.getSize());
+    }
+
+    @Test
+    public void arrIterator() {
+        arr.add("1");
+        arr.add("2");
+        arr.add("3");
+        Iterator<String> arrIter = arr.iterator();
+        assertEquals("incorrect first hasNext", true, arrIter.hasNext());
+        assertEquals("incorrect first next", "1", arrIter.next());
+        assertEquals("incorrect second hasNext", true, arrIter.hasNext());
+        assertEquals("incorrect second next", "2", arrIter.next());
+        assertEquals("incorrect third hasNext", true, arrIter.hasNext());
+        assertEquals("incorrect third next", "3", arrIter.next());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void arrAddNull() {
+        manLink.add(null);
+    }
+
 
 
     //ManualLinkedList Tests:

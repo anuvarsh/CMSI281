@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.008" errors="0" skipped="0" tests="16" name="edu.lmu.cmsi.anu.collections.CollectionsTest">
+<testsuite failures="0" time="0.014" errors="0" skipped="0" tests="24" name="edu.lmu.cmsi.anu.collections.CollectionsTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -46,7 +46,7 @@
     <property name="java.vm.specification.version" value="1.0"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test -q"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean compile test -q"/>
     <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="apple.awt.CToolkit"/>
@@ -65,20 +65,28 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.004" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkGetOldestExtraN"/>
+  <testcase time="0.004" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="arrIterator"/>
+  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkGetOldestExtraN"/>
   <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkGetNewestExtraN"/>
+  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="arrGetNewestFewN"/>
+  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="arrResetGetSize"/>
   <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkGetSize"/>
   <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkGetOldestFewN"/>
-  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkGetOldestExtraN"/>
-  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkAddNull"/>
+  <testcase time="0.001" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkGetOldestExtraN"/>
+  <testcase time="0.001" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkAddNull"/>
   <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkGetNewestExtraN"/>
-  <testcase time="0.001" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkIterator"/>
-  <testcase time="0.001" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkGetNewestFewN"/>
+  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="arrGetOldestFewN"/>
+  <testcase time="0.002" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkIterator"/>
+  <testcase time="0.001" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="arrAddNull"/>
+  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkGetNewestFewN"/>
   <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkGetSize"/>
-  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkResetGetSize"/>
-  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkResetGetSize"/>
-  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkGetOldestFewN"/>
+  <testcase time="0.001" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkResetGetSize"/>
+  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="arrGetOldestExtraN"/>
+  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="arrGetSize"/>
+  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="arrGetNewestExtraN"/>
+  <testcase time="0.001" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkResetGetSize"/>
+  <testcase time="0.001" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkGetOldestFewN"/>
   <testcase time="0.001" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkIterator"/>
-  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkGetNewestFewN"/>
-  <testcase time="0.001" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkAddNull"/>
+  <testcase time="0.001" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="myLinkGetNewestFewN"/>
+  <testcase time="0" classname="edu.lmu.cmsi.anu.collections.CollectionsTest" name="manLinkAddNull"/>
 </testsuite>
