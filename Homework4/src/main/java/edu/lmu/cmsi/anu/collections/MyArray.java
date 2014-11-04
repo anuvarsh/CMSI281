@@ -2,17 +2,18 @@ package edu.lmu.cmsi.anu.collections;
 
 import java.util.Iterator;
 
-public class MyArray<E> extends MyCollection<E> implements Iterable<E> {
+public class MyArray<E> extends MyCollection<E> {
 	private E[] arrayCollection;
     private int nElements;
 
 	public MyArray(int size) {
 		super(size);
+        arrayCollection = (E[])new Object[size];
         nElements = 0;
 	}
 
     public int getSize() {
-        return nElements;
+        return nElements-1;
     }
 
 	public E getOldest() {
@@ -48,25 +49,11 @@ public class MyArray<E> extends MyCollection<E> implements Iterable<E> {
 	public void reset() {
 		for (int i = 0; i < arrayCollection.length; i++) {
 			arrayCollection[i] = null;
-            nElements = 0;
+            nElements = 1;
 		}
 	}
 
 	public Iterator<E> iterator() {
         return new MyArrayIterator<E>(arrayCollection);
     }
-
-    /*
-    public static void main (String[] args) {
-    	MyArray<String> a1 = new MyArray (2);
-    	a1.add("First");
-    	a1.add("Second");
-
-    	System.out.println("Items in collection:");
-        for(String s: a1) {
-            System.out.println(s);
-        }
-    }
-    */
-
 }
