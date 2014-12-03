@@ -117,18 +117,19 @@ public class IntegerBinarySearchTree {
    * @return an array of Integers, or empty if the tree is empty.
    */
   public Integer[] toPreOrder() {
-    return toPreOrderIn(root);
+    ArrayList<Integer> result = new ArrayList<Integer>();
+    toPreOrderIn(root, result);
+    Integer[] arrayResult = result.toArray(new Integer[result.size()]);
+    return arrayResult;
   }
 
-  public Integer[] toPreOrderIn(BinaryTreeNode node) {
-    ArrayList<Integer> result = new ArrayList<Integer>(); 
+  public void toPreOrderIn(BinaryTreeNode node, ArrayList<Integer> res) { 
     if (node != null) {
-      result.add(node.getValue());
-      toPreOrderIn(node.getLeft());
-      toPreOrderIn(node.getRight());
+      res.add(node.getValue());
+      toPreOrderIn(node.getLeft(), res);
+      toPreOrderIn(node.getRight(), res);
     }
-  Integer[] arrayResult = result.toArray(new Integer[result.size()]);
-  return arrayResult;
+
   }
 
   /**
@@ -137,7 +138,18 @@ public class IntegerBinarySearchTree {
    * @return an array of Integers, or empty if the tree is empty.
    */
   public Integer[] toInOrder() {
-    throw new UnsupportedOperationException("toInOrder needs to be implemented");
+    ArrayList<Integer> result = new ArrayList<Integer>();
+    toInOrderIn(root, result);
+    Integer[] arrayResult = result.toArray(new Integer[result.size()]);
+    return arrayResult;
+  }
+
+  public void toInOrderIn(BinaryTreeNode node, ArrayList<Integer> res) {
+    if (node != null) {
+      toInOrderIn(node.getLeft(), res);
+      res.add(node.getValue());      
+      toInOrderIn(node.getRight(), res);
+    }
   }
 
   /**
@@ -146,7 +158,18 @@ public class IntegerBinarySearchTree {
    * @return an array of Integers, or empty if the tree is empty.
    */
   public Integer[] toPostOrder() {
-    throw new UnsupportedOperationException("toPostOrder needs to be implemented");
+    ArrayList<Integer> result = new ArrayList<Integer>();
+    toPostOrderIn(root, result);
+    Integer[] arrayResult = result.toArray(new Integer[result.size()]);
+    return arrayResult;
+  }
+
+  public void toPostOrderIn(BinaryTreeNode node, ArrayList<Integer> res) {
+    if (node != null) {
+      toPostOrderIn(node.getLeft(), res);
+      toPostOrderIn(node.getRight(), res);
+      res.add(node.getValue());
+    }
   }
 
   /**
